@@ -6,6 +6,11 @@ nav:
         - Home: 'index.md'
         - Projects:
                 - 'C++算法编程指南': projects/algo_guide.md
+        - Algorithms:
+                - '基础数值算法':
+                        - notes/algos/basic_numeric_algos/prime_algos.md
+                        - notes/algos/basic_numeric_algos/integer_algos.md
+                        - notes/algos/basic_numeric_algos/number_repr_algos.md
 
 theme:
         name: material

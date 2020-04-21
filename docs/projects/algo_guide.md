@@ -18,11 +18,11 @@ ReadTheDocs 上的备用站速度较慢，但是可以导出为PDF格式，且�
 
 ## 编写
 
-因为讲义章节层次比较多，篇幅比较长，所以第一次编写时使用了 reStructuredText 格式，使用 Sphinx 编译为静态网站，在 GitHub Pages 和 ReadTheDocs 两个网站发布。
+因为讲义章节层次比较多，篇幅比较长，所以使用 reStructuredText 格式编写，使用 Sphinx 编译为静态网站，在 GitHub Pages 和 ReadTheDocs 两个网站发布。
 
-目前 reStructuredText 的表现力和撰写的便捷性已经不如 MarkDown 了，仅有三项优势：创建索引；``literalinclude`` 块引入代码文件；章节自动编号。
+目前 reStructuredText 的表现力和书写便捷性虽已不如 Markdown，但仍有一些优势，例如创建全站索引、章节自动编号、``literalinclude`` 块引入代码文件、PDF 编译等。故本项目这样的大篇幅书籍形式暂时无法全面由 Markdown 取代。
 
-现在正在对已经写好的内容进行校对，同时探索将项目迁移为 MarkDown 格式，校对结束后启动迁移。迁移后两种格式将同时保留，同步发布。
+现在正在对本项目已经写好的内容进行校对，同时探索将项目中的部分内容调整为 Markdown 笔记的格式。校对完成后启动在博客中编写算法笔记的工作，在本博客站的 Algorithms 部分中集中收录。
 
 ## 进度
 
