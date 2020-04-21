@@ -166,19 +166,26 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../notes/algos/basic_numeric_algos/prime_algos/" class="md-tabs__link">
+        <a href="../../notes/algos/overview/" class="md-tabs__link">
           Algorithms
         </a>
       
     </li>
   
 
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../notes/data_struct/overview/" class="md-tabs__link">
+          Data Structures
+        </a>
+      
+    </li>
   
 
       
@@ -348,22 +355,34 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../notes/algos/overview/" title="概述" class="md-nav__link">
+      概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-3-1">
-      基础数值算法
+    <label class="md-nav__link" for="nav-3-2">
+      数值算法
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="基础数值算法" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
+    <nav class="md-nav" aria-label="数值算法" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
-        基础数值算法
+        数值算法
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -374,8 +393,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../notes/algos/basic_numeric_algos/prime_algos/" title="质数判断算法" class="md-nav__link">
-      质数判断算法
+    <a href="../../notes/algos/numeric_algos/prime_algos/" title="质数算法" class="md-nav__link">
+      质数算法
     </a>
   </li>
 
@@ -386,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../notes/algos/basic_numeric_algos/integer_algos/" title="整数关系算法" class="md-nav__link">
-      整数关系算法
+    <a href="../../notes/algos/numeric_algos/integer_algos/" title="整数算法" class="md-nav__link">
+      整数算法
     </a>
   </li>
 
@@ -398,7 +417,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../notes/algos/basic_numeric_algos/number_repr_algos/" title="数的表示" class="md-nav__link">
+    <a href="../../notes/algos/numeric_algos/number_repr_algos/" title="数的表示" class="md-nav__link">
       数的表示
     </a>
   </li>
@@ -406,6 +425,48 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Data Structures
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Data Structures" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Data Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../notes/data_struct/overview/" title="概述" class="md-nav__link">
+      概述
+    </a>
   </li>
 
         
@@ -490,7 +551,7 @@
 <h2 id="_2">编写<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>因为讲义章节层次比较多，篇幅比较长，所以使用 reStructuredText 格式编写，使用 Sphinx 编译为静态网站，在 GitHub Pages 和 ReadTheDocs 两个网站发布。</p>
 <p>目前 reStructuredText 的表现力和书写便捷性虽已不如 Markdown，但仍有一些优势，例如创建全站索引、章节自动编号、<code>literalinclude</code> 块引入代码文件、PDF 编译等。故本项目这样的大篇幅书籍形式暂时无法全面由 Markdown 取代。</p>
-<p>现在正在对本项目已经写好的内容进行校对，同时探索将项目中的部分内容调整为 Markdown 笔记的格式。校对完成后启动在博客中编写算法笔记的工作，在本博客站的 Algorithms 部分中集中收录。</p>
+<p>现在正在对本项目已经写好的内容进行校对，同时探索将项目中的部分内容调整为 Markdown 笔记的格式。校对完成后启动在博客中编写算法笔记的工作，在本博客站的 <a href="../../notes/algos/overview/">Algorithms</a> 部分中集中收录。</p>
 <h2 id="_3">进度<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>校对：完成至3.5.2“插入排序”（2020/4/20）</li>
@@ -528,13 +589,13 @@
           </a>
         
         
-          <a href="../../notes/algos/basic_numeric_algos/prime_algos/" title="质数判断算法" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../notes/algos/overview/" title="概述" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                质数判断算法
+                概述
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
