@@ -1,0 +1,40 @@
+site_name: Majorli's Blogs
+
+site_author: MajorLi
+
+nav:
+        - Home: 'index.md'
+        - Projects:
+                - 'C++算法编程指南': projects/algo_guide.md
+
+theme:
+        name: material
+        site_dir: '../blogs_site'
+        palette:
+                primary: teal
+                accent: teal
+        features:
+                - tabs
+        favicon: images/favicon.png
+        logo: images/jeans.png
+
+markdown_extensions:
+        - admonition
+        - toc:
+                permalink: true
+        - pymdownx.highlight:
+                linenums: true
+        - pymdownx.superfences
+        - pymdownx.details
+        - pymdownx.inlinehilite
+        - pymdownx.caret
+        - pymdownx.arithmatex
+        - pymdownx.magiclink
+        - pymdownx.mark
+        - pymdownx.tasklist
+        - pymdownx.tilde
+        - pymdownx.critic
+        - pymdownx.tabbed
+
+plugins:
+        - search:
