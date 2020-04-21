@@ -17,6 +17,7 @@ theme:
                 - tabs
         favicon: images/favicon.png
         logo: images/jeans.png
+        language: zh
 
 markdown_extensions:
         - admonition
@@ -37,4 +38,4 @@ markdown_extensions:
         - pymdownx.tabbed
 
 plugins:
-        - search:
+        - search
