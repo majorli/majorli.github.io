@@ -1,6 +1,10 @@
 site_name: Majorli's Blogs
-
+site_description: Projects and notes about algorithms, data structures, mathematics, machine learning and so on
 site_author: MajorLi
+site_url: https://majorli.github.io/
+
+repo_name: majorli/majorli.github.io
+repo_url: https://github.com/majorli/majorli.github.io
 
 nav:
         - Home: index.md
@@ -47,3 +51,6 @@ markdown_extensions:
 
 plugins:
         - search
+
+extra_javascript:
+        - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
