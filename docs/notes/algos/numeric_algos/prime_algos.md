@@ -12,7 +12,7 @@
 
 筛选质数 $p_i$ 的倍数时，可以从 $p_i^2$ 开始，不需要从 $2p_i$ 开始，因为此时从 $2p_i$ 到 $(p_i-1)p_i$ 的所有倍数都已经被小于 $p_i$ 的质数筛除。
 
-![Seive of Eratosthenes](../../img/212_erato.jpg)
+![Seive of Eratosthenes](/notes/algos/img/212_erato.jpg)
 
 时间复杂度 $O(n\log\log{n})$，空间复杂度 $O(n)$。
 
