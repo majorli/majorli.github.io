@@ -8,6 +8,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Projects and notes about algorithms, data structures, mathematics, machine learning and so on">
+      
+      
+        <link rel="canonical" href="https://majorli.github.io/notes/algos/overview/">
       
       
         <meta name="author" content="MajorLi">
@@ -69,7 +73,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="">
-    <a href="../../.." title="Majorli's Blogs" class="md-header-nav__button md-logo" aria-label="Majorli's Blogs">
+    <a href="https://majorli.github.io/" title="Majorli's Blogs" class="md-header-nav__button md-logo" aria-label="Majorli's Blogs">
       
   <img src="../../../images/jeans.png" alt="logo">
 
@@ -122,6 +126,19 @@
   </div>
 </div>
     
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/majorli/majorli.github.io/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    majorli/majorli.github.io
+  </div>
+</a>
+      </div>
     
   </nav>
 </header>
@@ -203,13 +220,26 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Majorli's Blogs" class="md-nav__button md-logo" aria-label="Majorli's Blogs">
+    <a href="https://majorli.github.io/" title="Majorli's Blogs" class="md-nav__button md-logo" aria-label="Majorli's Blogs">
       
   <img src="../../../images/jeans.png" alt="logo">
 
     </a>
     Majorli's Blogs
   </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/majorli/majorli.github.io/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    majorli/majorli.github.io
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -455,6 +485,10 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/majorli/majorli.github.io/edit/master/docs/notes/algos/overview.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
                 
                   
                 
@@ -462,19 +496,53 @@
                 <h1 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>此处汇集在编写项目“C++算法编程指南”过程中积累和整理的经典算法和算法问题。</p>
 <p>算法笔记中对这些算法和问题进行了重新分类编目，不再区分算法的难度，也不按算法设计方法、数据结构等进行分类，而是按照算法本身所要处理的问题领域进行分类。</p>
-<p>算法的描述不采用教学式的详细解说，而是分为以下几个部分对算法进行摘要：</p>
+<p>算法的描述分为以下几个部分进行摘要式说明，不采用教学式的详细解说，也不提供具体的实现代码。</p>
 <ol>
 <li>问题描述</li>
 <li>思路解析</li>
 <li>算法伪码</li>
-<li>实现代码</li>
 <li>算法总结</li>
 </ol>
 <p>问题描述部分给出算法的特性标签，包括算法类型（例如递归、二分、迭代、前缀和、高精度、高性能等）、设计方法（贪心、分治、动态规划、回溯、分支限界）、数据结构、预先知识等。</p>
 <p>思路解析为简要描述，但会给出其在“C++算法编程指南”中的章节链接，若需了解详情应前往该项目章节进行阅读。</p>
 <p>算法伪码参考《算法导论》一书中所使用的语法和格式，不同之处为凡涉及顺序序列，均从0开始对元素进行编号。</p>
-<p>所有算法均采用C++语言实现，符合C++98标准。今后部分算法可能增加Python 3实现代码。</p>
 <p>算法总结部分给出算法的时间复杂度、空间复杂度、优缺点、注意点、适用与不适用场景等，但不做详细分析。</p>
+<div class="admonition note">
+<p class="admonition-title">伪代码书写惯例</p>
+<ul>
+<li>
+<p><strong>关键字</strong></p>
+<p><span><span class="MathJax_Preview">\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, RETURN, BREAK, CONTINUE}</span><script type="math/tex">\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, RETURN, BREAK, CONTINUE}</script></span></p>
+</li>
+<li>
+<p><strong>算法命名</strong></p>
+<p>英语单词或词组，首字母大写，词组中多个单词之间直接连接，不使用连字符。</p>
+</li>
+<li>
+<p><strong>变量与范围</strong></p>
+<p>单个变量使用小写字母，序列、矩阵及更高维的张量使用大写字母。</p>
+<p><span><span class="MathJax_Preview">P[i]</span><script type="math/tex">P[i]</script></span> 表示序列 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 的第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个元素，<span><span class="MathJax_Preview">P[0]</span><script type="math/tex">P[0]</script></span> 为首元素；</p>
+<p><span><span class="MathJax_Preview">P[i:j]</span><script type="math/tex">P[i:j]</script></span> 表示序列 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 中左闭右开区间 <span><span class="MathJax_Preview">[i,j)</span><script type="math/tex">[i,j)</script></span> 上的子序列；</p>
+<p><span><span class="MathJax_Preview">P[i..j]</span><script type="math/tex">P[i..j]</script></span> 表示序列 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 中闭区间 <span><span class="MathJax_Preview">[i,j]</span><script type="math/tex">[i,j]</script></span> 上的子序列，故有 <span><span class="MathJax_Preview">P[i:j]=P[i..j-1]</span><script type="math/tex">P[i:j]=P[i..j-1]</script></span>；</p>
+<p><span><span class="MathJax_Preview">P[f(k)],k\in K</span><script type="math/tex">P[f(k)],k\in K</script></span> 表示序列中下标为函数值 <span><span class="MathJax_Preview">f(k)</span><script type="math/tex">f(k)</script></span> 的元素，<span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 为 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的取值集合，例如 <span><span class="MathJax_Preview">P[2k-1],k\in\Bbb{Z}^+</span><script type="math/tex">P[2k-1],k\in\Bbb{Z}^+</script></span> 表示 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 中所有奇数下标的元素；</p>
+<p><span><span class="MathJax_Preview">P[i,j]</span><script type="math/tex">P[i,j]</script></span> 表示序列中的两个不同元素 <span><span class="MathJax_Preview">P[i]</span><script type="math/tex">P[i]</script></span> 和 <span><span class="MathJax_Preview">P[j]</span><script type="math/tex">P[j]</script></span>，位置可不连续，多个时表示法类似，多个下标间用逗号分隔；</p>
+<p>下标的逗号分隔表示法适用于上述各种范围表示法的组合，例如 <span><span class="MathJax_Preview">P[0:3,6,10..12]</span><script type="math/tex">P[0:3,6,10..12]</script></span> 表示序列 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 中的 0, 1, 2, 6, 10, 11, 12 号元素。</p>
+</li>
+<li>
+<p><strong>赋值</strong></p>
+<p>使用符号 <span><span class="MathJax_Preview">\leftarrow</span><script type="math/tex">\leftarrow</script></span> 表示赋值，直接使用序列、矩阵、张量的变量名赋值而未指定范围的时候表示对其中所有元素赋相同的值。</p>
+</li>
+<li>
+<p><strong>代码块</strong></p>
+<p>采用和 Python 类似的缩进规则标识代码块，引起缩进的语句之后以 <code>:</code> 结尾，包括 <span><span class="MathJax_Preview">\text{DO, THEN, ELSE}</span><script type="math/tex">\text{DO, THEN, ELSE}</script></span>。若语句合并为一行则可省略冒号 <code>:</code>。</p>
+<p>顺序执行的语句合并为一行时，中间用逗号 <code>,</code> 分隔。</p>
+</li>
+<li>
+<p><strong>注释</strong></p>
+<p>仅使用单行注释，以 <code>#</code> 开头。</p>
+</li>
+</ul>
+</div>
                 
               
               
@@ -553,6 +621,8 @@
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
