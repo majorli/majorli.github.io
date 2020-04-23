@@ -158,13 +158,16 @@
     <ul class="md-tabs__list">
       
         
-  <li class="md-tabs__item">
-    
-      <a href="../../.." class="md-tabs__link">
-        Home
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
 
       
         
@@ -248,10 +251,52 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../.." title="Home" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
       Home
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to MajorLi's Blogs" class="md-nav__link">
+      Welcome to MajorLi's Blogs
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../journal/" title="Journal" class="md-nav__link">
+      Journal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -382,30 +427,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../numeric_algos/integer_algos/" title="整数算法" class="md-nav__link">
-      整数算法
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../numeric_algos/number_repr_algos/" title="数的表示" class="md-nav__link">
-      数的表示
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -512,7 +533,7 @@
 <ul>
 <li>
 <p><strong>关键字</strong></p>
-<p><span><span class="MathJax_Preview">\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, RETURN, BREAK, CONTINUE}</span><script type="math/tex">\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, RETURN, BREAK, CONTINUE}</script></span></p>
+<p><span><span class="MathJax_Preview">\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, FOREACH, IN, RETURN, BREAK, CONTINUE}</span><script type="math/tex">\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, FOREACH, IN, RETURN, BREAK, CONTINUE}</script></span></p>
 </li>
 <li>
 <p><strong>算法命名</strong></p>
@@ -539,7 +560,7 @@
 </li>
 <li>
 <p><strong>注释</strong></p>
-<p>仅使用单行注释，以 <code>#</code> 开头。</p>
+<p>仅使用单行注释，以 <code>//</code> 开头。</p>
 </li>
 </ul>
 </div>

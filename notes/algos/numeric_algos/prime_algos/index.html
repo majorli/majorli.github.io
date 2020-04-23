@@ -158,13 +158,16 @@
     <ul class="md-tabs__list">
       
         
-  <li class="md-tabs__item">
-    
-      <a href="../../../.." class="md-tabs__link">
-        Home
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../.." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
 
       
         
@@ -248,10 +251,52 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../../.." title="Home" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
       Home
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Welcome to MajorLi's Blogs" class="md-nav__link">
+      Welcome to MajorLi's Blogs
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../journal/" title="Journal" class="md-nav__link">
+      Journal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -430,34 +475,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    互质算法
+  </a>
+  
+    <nav class="md-nav" aria-label="互质算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    预备知识: 欧拉函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../integer_algos/" title="整数算法" class="md-nav__link">
-      整数算法
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../number_repr_algos/" title="数的表示" class="md-nav__link">
-      数的表示
-    </a>
   </li>
 
         
@@ -565,6 +606,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    互质算法
+  </a>
+  
+    <nav class="md-nav" aria-label="互质算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    预备知识: 欧拉函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -597,8 +658,9 @@
 <p>缺点：当 <span><span class="MathJax_Preview">n\ge10^6</span><script type="math/tex">n\ge10^6</script></span> 时，初期对2、3、5的倍数筛除过程耗时过长。</p>
 <p><strong>算法伪码</strong></p>
 <div class="admonition abstract">
-<p class="admonition-title">Seive of Eratosthenes</p>
-<p><span><span class="MathJax_Preview">\text{EratoSeive}(P, n):</span><script type="math/tex">\text{EratoSeive}(P, n):</script></span>    # <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>：逻辑值序列，即质数表</p>
+<p class="admonition-title">Algorithm: Seive of Eratosthenes</p>
+<p>// <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>：逻辑值序列，即质数表；<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：筛的上限值</p>
+<p><span><span class="MathJax_Preview">\text{EratoSeive}(P, n):</span><script type="math/tex">\text{EratoSeive}(P, n):</script></span></p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ P\leftarrow true,P[0,1]\leftarrow false</span><script type="math/tex">\ \ \ \ \ \ \ \ P\leftarrow true,P[0,1]\leftarrow false</script></span></p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ p \leftarrow 2</span><script type="math/tex">\ \ \ \ \ \ \ \ p \leftarrow 2</script></span></p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{WHILE}\ \  p^2 \le n \ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{WHILE}\ \  p^2 \le n \ \ \text{DO}:</script></span></p>
@@ -623,6 +685,148 @@
 </ol>
 </div>
 <h3 id="_4">欧拉质数筛<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>算法标签：<code>数值</code> <code>模拟</code> <code>动态规划</code> <code>打表</code> <code>高效率</code></p>
+<p>欧拉质数筛，又叫<strong>线性筛</strong>效率比埃氏筛更高，是目前效率最高的质数打表算法：欧拉筛同样使用两层循环去筛除已知质数的倍数，但内外循环的含义和埃氏筛相反，其外循环为要筛的倍数，从2开始逐一递增，内循环为已知质数从小到大的遍历，第一个已知质数为2。这样可以避免埃氏筛初期耗时长的问题，使得整个筛选过程都比较均匀。</p>
+<p>欧拉筛在遇到某一质数 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是倍数 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的因数，即 <span><span class="MathJax_Preview">t=kp,k\in\Bbb{Z}^+</span><script type="math/tex">t=kp,k\in\Bbb{Z}^+</script></span> 时，这一轮筛选就立刻结束。因为对于此后的任意质数 <span><span class="MathJax_Preview">p^\prime\gt p</span><script type="math/tex">p^\prime\gt p</script></span>，其倍数 <span><span class="MathJax_Preview">tp^\prime=kpp^\prime=(kp^\prime)p</span><script type="math/tex">tp^\prime=kpp^\prime=(kp^\prime)p</script></span>，可以留给今后的 <span><span class="MathJax_Preview">t^\prime=kp^\prime</span><script type="math/tex">t^\prime=kp^\prime</script></span> 倍数筛选循环中去。这样就可以避免埃氏筛中的重复筛除，从而达到线性筛的目标，即每一个合数都被筛除一次且仅有一次。</p>
+<p>欧拉筛在运行时除了要有一张逻辑值表作为筛子以外，还需要额外维护一张质数表用来存放已知质数，以便内循环方便地进行遍历。当一轮外循环开始时，如果发现倍数值 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 未被筛除，说明 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 是一个新发现的质数，将其添加到已知质数表中。</p>
+<p>整个筛选过程到2的倍数大于要筛选的范围上限时就完全结束了，以后不会再有合数筛除。但是和埃氏筛一样，此后会有质数余留在筛中，需要逐一检出放入已知质数表。</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<table>
+<thead>
+<tr>
+<th align="center">倍数 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span></th>
+<th align="left">新质数的收集</th>
+<th align="left">已知质数表 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span></th>
+<th align="left">合数的筛除</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2</td>
+<td align="left">2未被筛除，收集 <font color='green'>2</font></td>
+<td align="left">[2]</td>
+<td align="left">2的2倍数 <font color='red'>4</font></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">3未被筛除，收集 <font color='green'>3</font></td>
+<td align="left">[2,3]</td>
+<td align="left">2的3倍数 <font color='red'>6</font></br>3的3倍数 <font color='red'>9</font></td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">4已被筛除</td>
+<td align="left">[2,3]</td>
+<td align="left">2的4倍数 <font color='red'>8</font>，4能被2整除，本轮结束</br>3的4倍数12将留作2的6倍数去筛除</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">5未被筛除，收集 <font color='green'>5</font></td>
+<td align="left">[2,3,5]</td>
+<td align="left">2的5倍数 <font color='red'>10</font></br>3的5倍数 <font color='red'>15</font></br>5的5倍数25大于20，本轮结束</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">6已被筛除</td>
+<td align="left">[2,3,5]</td>
+<td align="left">2的6倍数 <font color='red'>12</font>，6能被2整除，本轮结束</br>3的6倍数18将留作2的9倍数去筛除</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">7未被筛除，收集 <font color='green'>7</font></td>
+<td align="left">[2,3,5,7]</td>
+<td align="left">2的7倍数 <font color='red'>14</font></br>3的7倍数21大于20，本轮结束</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">8已被筛除</td>
+<td align="left">[2,3,5,7]</td>
+<td align="left">2的8倍数 <font color='red'>16</font>，8能被2整除，本轮结束</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">9已被筛除</td>
+<td align="left">[2,3,5,7]</td>
+<td align="left">2的9倍数 <font color='red'>18</font></br>3的9倍数27大于20，本轮结束</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">10已被筛除</td>
+<td align="left">[2,3,5,7]</td>
+<td align="left">2的10倍数 <font color='red'>20</font></br>3的10倍数30大于20，本轮结束</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">11未被筛除，收集 <font color='green'>11</font></td>
+<td align="left">[2,3,5,7,11]</td>
+<td align="left">2的11倍数22大于20，本轮结束</br>此后不再发生合数筛除，仅收集质数</td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+</tr>
+<tr>
+<td align="center">20</td>
+<td align="left">20已被筛除</td>
+<td align="left">[2,3,5,7,11,13,17,19]</td>
+<td align="left">结束，返回已知质数表 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+<p>缺点：使用额外空间，代码略显复杂。</p>
+<div class="admonition abstract">
+<p class="admonition-title">Algorithm: Seive of Euler</p>
+<p>// <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>：整型序列，质数表，初始为空表；<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：筛的上限值</p>
+<p>// <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>：逻辑型序列，即筛子；<span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>：倍数；<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：质数</p>
+<p><span><span class="MathJax_Preview">\text{EulerSeive}(P,n):</span><script type="math/tex">\text{EulerSeive}(P,n):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ S[2..n]\leftarrow true</span><script type="math/tex">\ \ \ \ \ \ \ \ S[2..n]\leftarrow true</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ S[t] = true\ \ \text{TEHN}\ \ \text{Push}\ \ t\ \ \text{into}\ \ P</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ S[t] = true\ \ \text{TEHN}\ \ \text{Push}\ \ t\ \ \text{into}\ \ P</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOREACH}\ \ p\ \ \text{IN}\ \ P\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOREACH}\ \ p\ \ \text{IN}\ \ P\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ t\cdot p \gt n\ \ \text{THEN}\ \ \text{BREAK}</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ t\cdot p \gt n\ \ \text{THEN}\ \ \text{BREAK}</script></span> </p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S[t \cdot p] \leftarrow false</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ S[t \cdot p] \leftarrow false</script></span> </p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}\ \ \text{BREAK}</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}\ \ \text{BREAK}</script></span> </p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ P</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ P</script></span></p>
+</div>
+<h2 id="_5">互质算法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><strong>目标：</strong>计算整数区间 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 内有序互质对的数量。</p>
+<h3 id="_6">预备知识: 欧拉函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>欧拉函数 <span><span class="MathJax_Preview">\varphi(z):\Bbb{Z}^+\mapsto\Bbb{Z}^+</span><script type="math/tex">\varphi(z):\Bbb{Z}^+\mapsto\Bbb{Z}^+</script></span>，表示在整数区间 <span><span class="MathJax_Preview">[1,z)</span><script type="math/tex">[1,z)</script></span> 内有多少个数与 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 互质。</p>
+<div>
+<div class="MathJax_Preview">
+\varphi(z)=
+\begin{cases}
+1&amp;,z=1\\
+z\prod_{i=1}^n\left(1-{1\over{p_i}}\right)&amp;,z\gt1
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+\varphi(z)=
+\begin{cases}
+1&,z=1\\
+z\prod_{i=1}^n\left(1-{1\over{p_i}}\right)&,z\gt1
+\end{cases}
+</script>
+</div>
+<p>其中 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的质因数数量，<span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span> 为 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的质因数，<span><span class="MathJax_Preview">i=1,\dots,n</span><script type="math/tex">i=1,\dots,n</script></span>。对照公式可直接得到计算欧拉函数的算法，从2开始一边循环寻找质因数一边迭代计算即可。</p>
+<div class="admonition abstract">
+<p class="admonition-title">Algorithm: Euler's Phi Function</p>
+<p>// <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>：质因数；<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：函数值</p>
+<p><span><span class="MathJax_Preview">\text{Phi}(z):</span><script type="math/tex">\text{Phi}(z):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ f\leftarrow 2,p\leftarrow z</span><script type="math/tex">\ \ \ \ \ \ \ \ f\leftarrow 2,p\leftarrow z</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{WHILE}\ \ z \gt 1\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{WHILE}\ \ z \gt 1\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ f \mid z\ \ \text{THEN}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ f \mid z\ \ \text{THEN}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow p - p / f</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow p - p / f</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ f \mid z\ \ \text{DO}\ \ z\leftarrow z / p</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ f \mid z\ \ \text{DO}\ \ z\leftarrow z / p</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f \leftarrow f+1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f \leftarrow f+1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ p</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ p</script></span></p>
+</div>
+<p>(To be continued.<mark class="critic">20200423,1300</mark>)</p>
                 
               
               
@@ -656,13 +860,13 @@
           </a>
         
         
-          <a href="../integer_algos/" title="整数算法" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../data_struct/overview/" title="概述" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                整数算法
+                概述
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
