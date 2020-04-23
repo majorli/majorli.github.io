@@ -7,15 +7,15 @@ repo_name: majorli/majorli.github.io
 repo_url: https://github.com/majorli/majorli.github.io
 
 nav:
-        - Home: index.md
+        - Home: 
+                - index.md
+                - journal.md
         - Projects:
                 - projects/algo_guide.md
         - Algorithms:
                 - notes/algos/overview.md
                 - 数值算法:
                         - notes/algos/numeric_algos/prime_algos.md
-                        - notes/algos/numeric_algos/integer_algos.md
-                        - notes/algos/numeric_algos/number_repr_algos.md
         - Data Structures:
                 - notes/data_struct/overview.md
 
