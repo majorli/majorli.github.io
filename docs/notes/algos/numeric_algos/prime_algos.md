@@ -82,7 +82,7 @@
 
 缺点：使用额外空间，代码略显复杂。
 
-!!! abstract "Seive of Euler"
+!!! abstract "Algorithm: Seive of Euler"
     // $P$：整型序列，质数表，初始为空表；$n$：筛的上限值
 
     // $S$：逻辑型序列，即筛子；$t$：倍数；$p$：质数
@@ -123,7 +123,7 @@ $$
 
 其中 $n$ 为 $z$ 的质因数数量，$p_i$ 为 $z$ 的质因数，$i=1,\dots,n$。对照公式可直接得到计算欧拉函数的算法，从2开始一边循环寻找质因数一边迭代计算即可。
 
-!!! abstract "Euler's Phi Function"
+!!! abstract "Algorithm: Euler's Phi Function"
     // $f$：质因数；$p$：函数值
 
     $\text{Phi}(z):$

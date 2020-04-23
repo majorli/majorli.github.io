@@ -22,7 +22,7 @@
 !!! note "伪代码书写惯例"
     - **关键字**
 
-        $\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, , FOREACH, IN, RETURN, BREAK, CONTINUE}$
+        $\text{IF, THEN, ELSE, WHILE, DO, FOR, TO, FOREACH, IN, RETURN, BREAK, CONTINUE}$
 
     - **算法命名**
 
