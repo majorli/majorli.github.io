@@ -50,6 +50,8 @@
     ```
     2. 表中不放偶数，$P$ 的长度设置为 $n\over2$，$P[k]$ 对应 $2k+1$。
 
+详情：[埃氏质数筛](https://majorli.github.io/algo_guide/ch02/sec01/212_primes.html#index-0){: target=_blank}
+
 ### 欧拉质数筛
 
 算法标签：``数值`` ``模拟`` ``动态规划`` ``打表`` ``高效率``
@@ -82,10 +84,12 @@
 
 缺点：使用额外空间，代码略显复杂。
 
-!!! abstract "Algorithm: Seive of Euler"
-    // $P$：整型序列，质数表，初始为空表；$n$：筛的上限值
+**算法伪码**
 
-    // $S$：逻辑型序列，即筛子；$t$：倍数；$p$：质数
+!!! abstract "Algorithm: Seive of Euler"
+    // $P$：整数序列，质数表，初始为空表；$n$：筛的上限值
+
+    // $S$：逻辑值序列，即筛子；$t$：倍数；$p$：质数
 
     $\text{EulerSeive}(P,n):$
 
@@ -105,6 +109,8 @@
 
     $\ \ \ \ \ \ \ \ \text{RETURN}\ \ P$
 
+详情：[欧拉线性筛](https://majorli.github.io/algo_guide/ch05/sec01/511_euler_seive.html#index-0){: target=_blank}
+
 ## 互质算法
 
 **目标：**计算整数区间 $[1,n]$ 内有序互质对的数量。
@@ -122,6 +128,8 @@ z\prod_{i=1}^n\left(1-{1\over{p_i}}\right)&,z\gt1
 $$
 
 其中 $n$ 为 $z$ 的质因数数量，$p_i$ 为 $z$ 的质因数，$i=1,\dots,n$。对照公式可直接得到计算欧拉函数的算法，从2开始一边循环寻找质因数一边迭代计算即可。
+
+**算法伪码**
 
 !!! abstract "Algorithm: Euler's Phi Function"
     // $f$：质因数；$p$：函数值
@@ -142,5 +150,128 @@ $$
 
     $\ \ \ \ \ \ \ \ \text{RETURN}\ \ p$
 
-(To be continued.{==20200423,1300==})
+**欧拉函数的计算性质**
+
+1. 对于质数 $p$，$\varphi(p)=p-1$。
+2. 若 $p$ 为质数，$n=p^k,k\in\Bbb{Z}^+$，则 $\varphi(n)=p^k-p^{k-1}$。
+3. 若 $m$ 和 $n$ 互质，则 $\varphi(m\cdot n)=\varphi(m)\cdot\varphi(n)$。
+4. 若 $p$ 为质数，$n=kp,k\in\Bbb{Z}^+$，则 $\varphi(n\cdot p)=\varphi(n)\cdot p$。
+5. 若 $n$ 为奇数，则 $\varphi(2n)=\varphi(n)$。
+
+#### 欧拉函数值打表
+
+算法标签：``数值`` ``模拟`` ``动态规划`` ``打表`` ``高效率``
+
+欧拉线性筛从2开始逐个检查范围内所有整数，每一个整数被分为三种情况：1、是质数；2、是质数的倍数；3、与一质数互质。恰好对应 $\varphi$ 函数的计算性质1、4、3。因此用欧拉线性筛可以在筛出质数的同时完成 $\varphi$ 函数值的打表。
+
+$\varphi$ 函数值必为正数，故在算法中可以将函数值表 $\Phi$ 先初始化为全0，用来代替线性筛的筛表 $S$。打表过程遇到 $\Phi(z)=0$ 即表示该整数 $z$ 为质数。此算法同时完成质数筛选和函数值打表。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+**算法伪码**
+
+!!! abstract "Algorithm: Table of Euler's Phi Function"
+    // $P$：整数序列，质数表，初始为空表；$n$：打表的上限值
+
+    // $\Phi$：整数序列，即欧拉函数值表；$t$：倍数；$p$：质数
+
+    $\text{EulerPhiFuncTable}(P,\Phi,n):$
+
+    $\ \ \ \ \ \ \ \ \Phi[2..n] \leftarrow 0, \Phi[1] \leftarrow 1$
+
+    $\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ \Phi[t] = 0\ \ \text{TEHN}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Push}\ \ t\ \ \text{into}\ \ P\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //$性质1
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t] \leftarrow t-1$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOREACH}\ \ p\ \ \text{IN}\ \ P\ \ \text{DO}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ t\cdot p \gt n\ \ \text{THEN}\ \ \text{BREAK}$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t \cdot p] \leftarrow \Phi[t]\cdot p\ \ \ \ \ \ \ \ //$ 性质4
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{BREAK}$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t \cdot p] \leftarrow \Phi[t]\cdot \Phi[p]\ \ \ \ //$ 性质3
+
+    $\ \ \ \ \ \ \ \ \text{RETURN}\ \ \Phi,P$
+
+详情：[欧拉线性筛](https://majorli.github.io/algo_guide/ch05/sec01/511_euler_seive.html#index-0){: target=_blank}
+
+### 计算互质对数量
+
+#### 欧拉函数法
+
+利用欧拉 $\varphi$ 函数值可以快速计算出 $[1,n]$ 区间内有序互质对的数量。
+
+任一整数 $z\in [2,n]$ 在区间 $[1,n]$ 内有 $k=\varphi(z)$ 个与之互质的整数 $q_1,\dots,q_k$，则可构成 $2k$ 个有序互质对 $(q_1,n),\dots,(q_k,n),(n,q_1),\dots,(n,q_k)$。
+
+整数1则只有它自己与自己互质，故只能构成1个互质对 $(1,1)$。
+
+任意两个不同的整数，它们分别构成的上述有序互质对都是不同的，不会有重复。故 $[1,n]$ 区间内有序互质对的数量可用欧拉函数值表示为：
+
+$$
+1+2\sum_{z=2}^n\varphi(z)
+$$
+
+使用欧拉线性筛打表的方法打出 $[1,n]$ 区间上的 $\varphi$ 函数值表后，通过一次求和即可得出结果。算法伪码略。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+
+#### 动态规划法
+
+使用动态规划的方法求出 $[1,n]$ 区间内有序不互质对的数量，从总数量 $n^2$ 中减去不互质对的数量即为互质对数量。
+
+任一整数 $z\in [2,n]$ 在区间 $[1,n]$ 内有 $\left\lfloor{n\over z}\right\rfloor$ 个倍数。任意两个倍数都有大于1的公因数 $z$，故不互质。所有倍数两两组合构成的 $\left\lfloor{n\over z}\right\rfloor^2$ 个有序数对均为不互质对。
+
+以此方法，由不同整数构成的有序不互质对之间存在重复现象。由整数 $z$ 的倍数构造的不互质对完全包含了由 $kz,k=2,3,\dots$ 的倍数构造的不互质对，在计算时应当减去所有重复计算的部分。
+
+使用动态规划的方法计算出由每一个整数的倍数所构造出的无重复的有序不互质对数量，计算顺序为从 $n$ 到 $2$，存放在DP备忘录 $C$ 中，递推方程为：
+
+$$
+C[z]=\left\lfloor{n\over z}\right\rfloor^2-\sum_{2z\le kz\le n,k\in\Bbb{Z}}C[kz]
+$$
+
+整数1和任何其他正整数都是互质的，故1不会构成不互质数对。因此上述DP过程计算完毕后即可得到问题的解，整数区间 $[1,n]$ 内的整数两两组合一共有 $n^2-\sum_{z=2}^nC[z]$ 个有序互质对。
+
+时间复杂度 $O\bigl(nH\left(\left\lfloor{n\over2}\right\rfloor\right)\bigr)$，其中 $H(m)=1+{1\over2}+\cdots+{1\over m}$ 为调和级数的部分和，空间复杂度 $O(n)$。
+
+**算法伪码**
+
+!!! abstract "Algorithm: Number of Coprime Pairs (DP)"
+    // $C$：动态规划过程的DP备忘录表
+
+    // $p$：有序互质对数量
+
+    $\text{CoprimePairsDP}(n):$
+
+    $\ \ \ \ \ \ \ \ C[1] \leftarrow 0$
+
+    $\ \ \ \ \ \ \ \ \text{FOR}\ \ z \leftarrow n\ \ \text{TO}\ \ 2 \ \ \text{DO}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[z] \leftarrow \left\lfloor {n\over z} \right\rfloor^2$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k \leftarrow 2z$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ k \le n\ \ \text{DO}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[z] \leftarrow C[z] - C[k]$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k \leftarrow k + z$
+
+    $\ \ \ \ \ \ \ \ p \leftarrow n^2$
+
+    $\ \ \ \ \ \ \ \ \text{FOR}\ \ z \leftarrow 2\ \ \text{TO}\ \ n \ \ \text{DO}:$
+
+    $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow p - C[z]$
+
+    $\ \ \ \ \ \ \ \ \text{RETURN}\ \ p$
+
 
