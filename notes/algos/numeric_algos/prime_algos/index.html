@@ -488,6 +488,46 @@
     预备知识: 欧拉函数
   </a>
   
+    <nav class="md-nav" aria-label="预备知识: 欧拉函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    欧拉函数值打表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    计算互质对数量
+  </a>
+  
+    <nav class="md-nav" aria-label="计算互质对数量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    欧拉函数法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    动态规划法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -619,6 +659,46 @@
     预备知识: 欧拉函数
   </a>
   
+    <nav class="md-nav" aria-label="预备知识: 欧拉函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    欧拉函数值打表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    计算互质对数量
+  </a>
+  
+    <nav class="md-nav" aria-label="计算互质对数量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    欧拉函数法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    动态规划法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -684,6 +764,7 @@
 <li>表中不放偶数，<span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 的长度设置为 <span><span class="MathJax_Preview">n\over2</span><script type="math/tex">n\over2</script></span>，<span><span class="MathJax_Preview">P[k]</span><script type="math/tex">P[k]</script></span> 对应 <span><span class="MathJax_Preview">2k+1</span><script type="math/tex">2k+1</script></span>。</li>
 </ol>
 </div>
+<p>详情：<a href="https://majorli.github.io/algo_guide/ch02/sec01/212_primes.html#index-0" target="_blank">埃氏质数筛</a></p>
 <h3 id="_4">欧拉质数筛<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>算法标签：<code>数值</code> <code>模拟</code> <code>动态规划</code> <code>打表</code> <code>高效率</code></p>
 <p>欧拉质数筛，又叫<strong>线性筛</strong>效率比埃氏筛更高，是目前效率最高的质数打表算法：欧拉筛同样使用两层循环去筛除已知质数的倍数，但内外循环的含义和埃氏筛相反，其外循环为要筛的倍数，从2开始逐一递增，内循环为已知质数从小到大的遍历，第一个已知质数为2。这样可以避免埃氏筛初期耗时长的问题，使得整个筛选过程都比较均匀。</p>
@@ -779,10 +860,11 @@
 </div>
 <p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
 <p>缺点：使用额外空间，代码略显复杂。</p>
+<p><strong>算法伪码</strong></p>
 <div class="admonition abstract">
 <p class="admonition-title">Algorithm: Seive of Euler</p>
-<p>// <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>：整型序列，质数表，初始为空表；<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：筛的上限值</p>
-<p>// <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>：逻辑型序列，即筛子；<span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>：倍数；<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：质数</p>
+<p>// <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>：整数序列，质数表，初始为空表；<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：筛的上限值</p>
+<p>// <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>：逻辑值序列，即筛子；<span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>：倍数；<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：质数</p>
 <p><span><span class="MathJax_Preview">\text{EulerSeive}(P,n):</span><script type="math/tex">\text{EulerSeive}(P,n):</script></span></p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ S[2..n]\leftarrow true</span><script type="math/tex">\ \ \ \ \ \ \ \ S[2..n]\leftarrow true</script></span></p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:</script></span></p>
@@ -793,6 +875,7 @@
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}\ \ \text{BREAK}</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}\ \ \text{BREAK}</script></span> </p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ P</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ P</script></span></p>
 </div>
+<p>详情：<a href="https://majorli.github.io/algo_guide/ch05/sec01/511_euler_seive.html#index-0" target="_blank">欧拉线性筛</a></p>
 <h2 id="_5">互质算法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><strong>目标：</strong>计算整数区间 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 内有序互质对的数量。</p>
 <h3 id="_6">预备知识: 欧拉函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -814,6 +897,7 @@ z\prod_{i=1}^n\left(1-{1\over{p_i}}\right)&,z\gt1
 </script>
 </div>
 <p>其中 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的质因数数量，<span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span> 为 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的质因数，<span><span class="MathJax_Preview">i=1,\dots,n</span><script type="math/tex">i=1,\dots,n</script></span>。对照公式可直接得到计算欧拉函数的算法，从2开始一边循环寻找质因数一边迭代计算即可。</p>
+<p><strong>算法伪码</strong></p>
 <div class="admonition abstract">
 <p class="admonition-title">Algorithm: Euler's Phi Function</p>
 <p>// <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>：质因数；<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：函数值</p>
@@ -826,7 +910,89 @@ z\prod_{i=1}^n\left(1-{1\over{p_i}}\right)&,z\gt1
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f \leftarrow f+1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f \leftarrow f+1</script></span></p>
 <p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ p</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ p</script></span></p>
 </div>
-<p>(To be continued.<mark class="critic">20200423,1300</mark>)</p>
+<p><strong>欧拉函数的计算性质</strong></p>
+<ol>
+<li>对于质数 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span><span class="MathJax_Preview">\varphi(p)=p-1</span><script type="math/tex">\varphi(p)=p-1</script></span>。</li>
+<li>若 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为质数，<span><span class="MathJax_Preview">n=p^k,k\in\Bbb{Z}^+</span><script type="math/tex">n=p^k,k\in\Bbb{Z}^+</script></span>，则 <span><span class="MathJax_Preview">\varphi(n)=p^k-p^{k-1}</span><script type="math/tex">\varphi(n)=p^k-p^{k-1}</script></span>。</li>
+<li>若 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 和 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 互质，则 <span><span class="MathJax_Preview">\varphi(m\cdot n)=\varphi(m)\cdot\varphi(n)</span><script type="math/tex">\varphi(m\cdot n)=\varphi(m)\cdot\varphi(n)</script></span>。</li>
+<li>若 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为质数，<span><span class="MathJax_Preview">n=kp,k\in\Bbb{Z}^+</span><script type="math/tex">n=kp,k\in\Bbb{Z}^+</script></span>，则 <span><span class="MathJax_Preview">\varphi(n\cdot p)=\varphi(n)\cdot p</span><script type="math/tex">\varphi(n\cdot p)=\varphi(n)\cdot p</script></span>。</li>
+<li>若 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为奇数，则 <span><span class="MathJax_Preview">\varphi(2n)=\varphi(n)</span><script type="math/tex">\varphi(2n)=\varphi(n)</script></span>。</li>
+</ol>
+<h4 id="_7">欧拉函数值打表<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>算法标签：<code>数值</code> <code>模拟</code> <code>动态规划</code> <code>打表</code> <code>高效率</code></p>
+<p>欧拉线性筛从2开始逐个检查范围内所有整数，每一个整数被分为三种情况：1、是质数；2、是质数的倍数；3、与一质数互质。恰好对应 <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数的计算性质1、4、3。因此用欧拉线性筛可以在筛出质数的同时完成 <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数值的打表。</p>
+<p><span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数值必为正数，故在算法中可以将函数值表 <span><span class="MathJax_Preview">\Phi</span><script type="math/tex">\Phi</script></span> 先初始化为全0，用来代替线性筛的筛表 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>。打表过程遇到 <span><span class="MathJax_Preview">\Phi(z)=0</span><script type="math/tex">\Phi(z)=0</script></span> 即表示该整数 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 为质数。此算法同时完成质数筛选和函数值打表。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+<p><strong>算法伪码</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">Algorithm: Table of Euler's Phi Function</p>
+<p>// <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>：整数序列，质数表，初始为空表；<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>：打表的上限值</p>
+<p>// <span><span class="MathJax_Preview">\Phi</span><script type="math/tex">\Phi</script></span>：整数序列，即欧拉函数值表；<span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>：倍数；<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：质数</p>
+<p><span><span class="MathJax_Preview">\text{EulerPhiFuncTable}(P,\Phi,n):</span><script type="math/tex">\text{EulerPhiFuncTable}(P,\Phi,n):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \Phi[2..n] \leftarrow 0, \Phi[1] \leftarrow 1</span><script type="math/tex">\ \ \ \ \ \ \ \ \Phi[2..n] \leftarrow 0, \Phi[1] \leftarrow 1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{FOR}\ \ t \leftarrow 2\ \ \text{TO}\ \ n\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ \Phi[t] = 0\ \ \text{TEHN}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ \Phi[t] = 0\ \ \text{TEHN}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Push}\ \ t\ \ \text{into}\ \ P\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Push}\ \ t\ \ \text{into}\ \ P\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //</script></span>性质1</p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t] \leftarrow t-1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t] \leftarrow t-1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOREACH}\ \ p\ \ \text{IN}\ \ P\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOREACH}\ \ p\ \ \text{IN}\ \ P\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ t\cdot p \gt n\ \ \text{THEN}\ \ \text{BREAK}</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ t\cdot p \gt n\ \ \text{THEN}\ \ \text{BREAK}</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p \mid t\ \ \text{THEN}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t \cdot p] \leftarrow \Phi[t]\cdot p\ \ \ \ \ \ \ \ //</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t \cdot p] \leftarrow \Phi[t]\cdot p\ \ \ \ \ \ \ \ //</script></span> 性质4</p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{BREAK}</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{BREAK}</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t \cdot p] \leftarrow \Phi[t]\cdot \Phi[p]\ \ \ \ //</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \Phi[t \cdot p] \leftarrow \Phi[t]\cdot \Phi[p]\ \ \ \ //</script></span> 性质3</p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ \Phi,P</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ \Phi,P</script></span></p>
+</div>
+<p>详情：<a href="https://majorli.github.io/algo_guide/ch05/sec01/511_euler_seive.html#index-0" target="_blank">欧拉线性筛</a></p>
+<h3 id="_8">计算互质对数量<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">欧拉函数法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>利用欧拉 <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数值可以快速计算出 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 区间内有序互质对的数量。</p>
+<p>任一整数 <span><span class="MathJax_Preview">z\in [2,n]</span><script type="math/tex">z\in [2,n]</script></span> 在区间 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 内有 <span><span class="MathJax_Preview">k=\varphi(z)</span><script type="math/tex">k=\varphi(z)</script></span> 个与之互质的整数 <span><span class="MathJax_Preview">q_1,\dots,q_k</span><script type="math/tex">q_1,\dots,q_k</script></span>，则可构成 <span><span class="MathJax_Preview">2k</span><script type="math/tex">2k</script></span> 个有序互质对 <span><span class="MathJax_Preview">(q_1,n),\dots,(q_k,n),(n,q_1),\dots,(n,q_k)</span><script type="math/tex">(q_1,n),\dots,(q_k,n),(n,q_1),\dots,(n,q_k)</script></span>。</p>
+<p>整数1则只有它自己与自己互质，故只能构成1个互质对 <span><span class="MathJax_Preview">(1,1)</span><script type="math/tex">(1,1)</script></span>。</p>
+<p>任意两个不同的整数，它们分别构成的上述有序互质对都是不同的，不会有重复。故 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 区间内有序互质对的数量可用欧拉函数值表示为：</p>
+<div>
+<div class="MathJax_Preview">
+1+2\sum_{z=2}^n\varphi(z)
+</div>
+<script type="math/tex; mode=display">
+1+2\sum_{z=2}^n\varphi(z)
+</script>
+</div>
+<p>使用欧拉线性筛打表的方法打出 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 区间上的 <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数值表后，通过一次求和即可得出结果。算法伪码略。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+<h4 id="_10">动态规划法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>使用动态规划的方法求出 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 区间内有序不互质对的数量，从总数量 <span><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> 中减去不互质对的数量即为互质对数量。</p>
+<p>任一整数 <span><span class="MathJax_Preview">z\in [2,n]</span><script type="math/tex">z\in [2,n]</script></span> 在区间 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 内有 <span><span class="MathJax_Preview">\left\lfloor{n\over z}\right\rfloor</span><script type="math/tex">\left\lfloor{n\over z}\right\rfloor</script></span> 个倍数。任意两个倍数都有大于1的公因数 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span>，故不互质。所有倍数两两组合构成的 <span><span class="MathJax_Preview">\left\lfloor{n\over z}\right\rfloor^2</span><script type="math/tex">\left\lfloor{n\over z}\right\rfloor^2</script></span> 个有序数对均为不互质对。</p>
+<p>以此方法，由不同整数构成的有序不互质对之间存在重复现象。由整数 <span><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的倍数构造的不互质对完全包含了由 <span><span class="MathJax_Preview">kz,k=2,3,\dots</span><script type="math/tex">kz,k=2,3,\dots</script></span> 的倍数构造的不互质对，在计算时应当减去所有重复计算的部分。</p>
+<p>使用动态规划的方法计算出由每一个整数的倍数所构造出的无重复的有序不互质对数量，计算顺序为从 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 到 <span><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span>，存放在DP备忘录 <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 中，递推方程为：</p>
+<div>
+<div class="MathJax_Preview">
+C[z]=\left\lfloor{n\over z}\right\rfloor^2-\sum_{2z\le kz\le n,k\in\Bbb{Z}}C[kz]
+</div>
+<script type="math/tex; mode=display">
+C[z]=\left\lfloor{n\over z}\right\rfloor^2-\sum_{2z\le kz\le n,k\in\Bbb{Z}}C[kz]
+</script>
+</div>
+<p>整数1和任何其他正整数都是互质的，故1不会构成不互质数对。因此上述DP过程计算完毕后即可得到问题的解，整数区间 <span><span class="MathJax_Preview">[1,n]</span><script type="math/tex">[1,n]</script></span> 内的整数两两组合一共有 <span><span class="MathJax_Preview">n^2-\sum_{z=2}^nC[z]</span><script type="math/tex">n^2-\sum_{z=2}^nC[z]</script></span> 个有序互质对。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O\bigl(nH\left(\left\lfloor{n\over2}\right\rfloor\right)\bigr)</span><script type="math/tex">O\bigl(nH\left(\left\lfloor{n\over2}\right\rfloor\right)\bigr)</script></span>，其中 <span><span class="MathJax_Preview">H(m)=1+{1\over2}+\cdots+{1\over m}</span><script type="math/tex">H(m)=1+{1\over2}+\cdots+{1\over m}</script></span> 为调和级数的部分和，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+<p><strong>算法伪码</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">Algorithm: Number of Coprime Pairs (DP)</p>
+<p>// <span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span>：动态规划过程的DP备忘录表</p>
+<p>// <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>：有序互质对数量</p>
+<p><span><span class="MathJax_Preview">\text{CoprimePairsDP}(n):</span><script type="math/tex">\text{CoprimePairsDP}(n):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ C[1] \leftarrow 0</span><script type="math/tex">\ \ \ \ \ \ \ \ C[1] \leftarrow 0</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{FOR}\ \ z \leftarrow n\ \ \text{TO}\ \ 2 \ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{FOR}\ \ z \leftarrow n\ \ \text{TO}\ \ 2 \ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[z] \leftarrow \left\lfloor {n\over z} \right\rfloor^2</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[z] \leftarrow \left\lfloor {n\over z} \right\rfloor^2</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k \leftarrow 2z</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k \leftarrow 2z</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ k \le n\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ k \le n\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[z] \leftarrow C[z] - C[k]</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[z] \leftarrow C[z] - C[k]</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k \leftarrow k + z</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k \leftarrow k + z</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ p \leftarrow n^2</span><script type="math/tex">\ \ \ \ \ \ \ \ p \leftarrow n^2</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{FOR}\ \ z \leftarrow 2\ \ \text{TO}\ \ n \ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{FOR}\ \ z \leftarrow 2\ \ \text{TO}\ \ n \ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow p - C[z]</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow p - C[z]</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ p</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ p</script></span></p>
+</div>
                 
               
               
