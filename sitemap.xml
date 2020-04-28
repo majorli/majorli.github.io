@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://majorli.github.io/</loc>
-     <lastmod>2020-04-26</lastmod>
+     <lastmod>2020-04-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://majorli.github.io/journal/</loc>
-     <lastmod>2020-04-26</lastmod>
+     <lastmod>2020-04-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://majorli.github.io/projects/algo_guide/</loc>
-     <lastmod>2020-04-26</lastmod>
+     <lastmod>2020-04-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://majorli.github.io/notes/algos/overview/</loc>
-     <lastmod>2020-04-26</lastmod>
+     <lastmod>2020-04-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://majorli.github.io/notes/algos/numeric_algos/prime_algos/</loc>
-     <lastmod>2020-04-26</lastmod>
+     <lastmod>2020-04-28</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://majorli.github.io/notes/data_struct/overview/</loc>
-     <lastmod>2020-04-26</lastmod>
+     <lastmod>2020-04-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
