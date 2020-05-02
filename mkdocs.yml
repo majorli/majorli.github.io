@@ -9,7 +9,9 @@ repo_url: https://github.com/majorli/majorli.github.io
 nav:
         - Home: 
                 - index.md
-                - journal.md
+                - 更博日志:
+                        - journal.md
+                        - journal_apr_2020.md
         - Projects:
                 - projects/algo_guide.md
         - Algorithms:
@@ -53,7 +55,7 @@ markdown_extensions:
         - pymdownx.tabbed
 
 plugins:
-        #        - search
+        - search
 
 extra_javascript:
         - https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
