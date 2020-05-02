@@ -292,6 +292,33 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" checked>
+    
+    <label class="md-nav__link" for="nav-1-2">
+      更博日志
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="更博日志" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        更博日志
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -303,6 +330,23 @@
       Journal
     </a>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../journal_apr_2020/" title="2020年4月" class="md-nav__link">
+      2020年4月
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -557,46 +601,11 @@
                 
                 
                 <h1 id="journal">Journal<a class="headerlink" href="#journal" title="Permanent link">&para;</a></h1>
-<p><strong>2020年4月28日：</strong></p>
+<p><strong>2020年5月1日：</strong></p>
 <ul>
-<li>搞定了C++算法编程指南项目的中文网页搜索功能。sphinx-doc的中文搜索除了在配置文件 <code>conf.py</code> 中要增加 <code>html_search_language = 'zh'</code> 以外，还需要安装“结巴”中文分词包，<code>pip install -U jieba</code> 即可。</li>
-<li>知道了怎么给sphinx-doc配置Google的web fonts，比如Roboto，现在Google fonts有了中国站 googlefonts.cn，速度虽然不快但也能够接受，可惜中文没有web fonts，最终还是没有配置，算了。</li>
-<li>C++算法编程指南第三章基础算法全部校对完毕，接下来就要进入数据结构部分了，先把已经写好的顺序表校对完，然后就是链表、栈、队列、树、二叉树......</li>
-<li>准备整理编写k位数算法的笔记。</li>
-</ul>
-<p><strong>2020年4月26日：</strong></p>
-<ul>
-<li>C++算法编程指南：3.5.6“C++算法库排序函数”、3.5.7“复杂规则的排序技巧”、3.5.8“简单建索引算法”校对完成，整个3.5“基础排序算法”部分全部校对完毕并发布了。</li>
-</ul>
-<p><strong>2020年4月25日：</strong></p>
-<ul>
-<li>C++算法编程指南：修改了8.1节一处错误，3.5.5“非比较型排序算法”校对完成，已发布。</li>
-<li>算法笔记：质数算法一篇完成，内容包括埃氏质数筛、欧拉线性筛、欧拉 <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数、有序互质对数量。直通车：<a href="../notes/algos/numeric_algos/prime_algos/">质数算法</a>。</li>
-</ul>
-<p><strong>2020年4月24日：</strong></p>
-<ul>
-<li>C++算法编程指南：6.1.1“欧拉线性筛与欧拉函数”、8.1“仪仗队”校对完成，已发布。</li>
-</ul>
-<p><strong>2020年4月23日：</strong></p>
-<ul>
-<li>算法笔记增加欧拉线性筛和欧拉 <span><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 函数。</li>
-<li>C++算法编程指南：3.5.3“归并排序”、3.5.4“快速排序”校对完成，已发布。</li>
-</ul>
-<p><strong>2020年4月22日：</strong></p>
-<ul>
-<li>C++算法编程指南的3.5.3节“归并排序”校对完成，但是一篇太少了，暂时先放在draft里，等校对多几篇在一起发布出去吧。</li>
-<li>
-<p>终于搞定了Vim 8在编辑markdown文件时的各种syntax问题。</p>
-<p>Windows gVim 8.2的问题是markdown.vim中 <code>*</code> 型标记的 <code>markdownBold</code> 等三个 <code>region</code> 定义语句中 <code>skip="\\*"</code> 这个正则pattern写错了，改成 <code>skip="\\\*"</code> 就好了；</p>
-<p>macOS vim 8.1 的问题不确定是不是因为在 <code>_</code> 型标记的 <code>region</code> 定义语句中 <code>start</code> 和 <code>end</code> 的pattern中把 <code>\w</code> 写成了 <code>\S</code>。不过用 <code>syntax include</code> 把数学公式块定义为第二种语法规则（Tex语法）就好了。顺手改了改 <code>.vimrc</code> 文件，现在对 VimScript 越来越了解了。</p>
-</li>
-<li>
-<p>试着写了一点算法笔记，约定了伪码的语法规则，写了埃氏质数筛。决定Algorithms算法笔记中不给出C++代码，只给出算法伪码就好，太简单的算法也不收录了。BTW，material主题的视觉效果真的好！</p>
-</li>
-</ul>
-<p><strong>2020年4月20日：</strong></p>
-<ul>
-<li>开博，先放上项目“C++算法编程指南”项目，在编写项目的同时整理算法笔记。</li>
+<li>C++算法编程指南校对至5.1.1“贪心法(I) 背包问题“，还剩最后两个页面，然后就要开始新章节的编写了。</li>
+<li>搞明白了锦标赛算法和锦标赛排序的原理与实现，还是要用到二叉树。</li>
+<li>好像把站点配置文件 <code>mcdocs.yml</code> 中的 <code>search</code> plugin 删除掉之后全文搜索反而正常了。</li>
 </ul>
                 
               
@@ -631,13 +640,13 @@
           </a>
         
         
-          <a href="../projects/algo_guide/" title="C++算法编程指南" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../journal_apr_2020/" title="2020年4月" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                C++算法编程指南
+                2020年4月
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
