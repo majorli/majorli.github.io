@@ -16,12 +16,8 @@ nav:
                 - projects/algo_guide.md
         - Algorithms:
                 - notes/algos/overview.md
-                - 数值算法:
-                        - notes/algos/numeric_algos/prime_algos.md
-                - 统计算法:
-                        - notes/algos/stat_algos/kth.md
-        - Data Structures:
-                - notes/data_struct/overview.md
+                - notes/algos/prime_algos.md
+                - notes/algos/kth.md
 
 theme:
         name: material
