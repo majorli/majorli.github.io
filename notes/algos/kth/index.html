@@ -1,0 +1,861 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Projects and notes about algorithms, data structures, mathematics, machine learning and so on">
+      
+      
+        <link rel="canonical" href="https://majorli.github.io/notes/algos/kth/">
+      
+      
+        <meta name="author" content="MajorLi">
+      
+      <link rel="shortcut icon" href="../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>k位数与中位数 - Majorli's Blogs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#k" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="">
+    <a href="https://majorli.github.io/" title="Majorli's Blogs" class="md-header-nav__button md-logo" aria-label="Majorli's Blogs">
+      
+  <img src="../../../images/jeans.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Majorli's Blogs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              k位数与中位数
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/majorli/majorli.github.io/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    majorli/majorli.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../projects/algo_guide/" class="md-tabs__link">
+          Projects
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+          Algorithms
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://majorli.github.io/" title="Majorli's Blogs" class="md-nav__button md-logo" aria-label="Majorli's Blogs">
+      
+  <img src="../../../images/jeans.png" alt="logo">
+
+    </a>
+    Majorli's Blogs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/majorli/majorli.github.io/" title="前往 GitHub 仓库" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    majorli/majorli.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to MajorLi's Blogs" class="md-nav__link">
+      Welcome to MajorLi's Blogs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      更博日志
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="更博日志" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        更博日志
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../journal/" title="Journal" class="md-nav__link">
+      Journal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../journal_apr_2020/" title="2020年4月" class="md-nav__link">
+      2020年4月
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Projects
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Projects" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../projects/algo_guide/" title="C++算法编程指南" class="md-nav__link">
+      C++算法编程指南
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Algorithms
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Algorithms" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../overview/" title="概述" class="md-nav__link">
+      概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prime_algos/" title="质数算法" class="md-nav__link">
+      质数算法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        k位数与中位数
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="k位数与中位数" class="md-nav__link md-nav__link--active">
+      k位数与中位数
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    序列分区
+  </a>
+  
+    <nav class="md-nav" aria-label="序列分区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基于选择的序列分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基于冒泡的序列分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基于序列分区的算法
+  </a>
+  
+    <nav class="md-nav" aria-label="基于序列分区的算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k_1" class="md-nav__link">
+    分区k位数算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    分区中位数算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    锦标赛算法
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    序列分区
+  </a>
+  
+    <nav class="md-nav" aria-label="序列分区">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基于选择的序列分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基于冒泡的序列分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基于序列分区的算法
+  </a>
+  
+    <nav class="md-nav" aria-label="基于序列分区的算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k_1" class="md-nav__link">
+    分区k位数算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    分区中位数算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    锦标赛算法
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/majorli/majorli.github.io/edit/master/docs/notes/algos/kth.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="k">k位数与中位数<a class="headerlink" href="#k" title="Permanent link">&para;</a></h1>
+<p>此处所述k位数，指一个序列中第k小的数。</p>
+<p>给定序列 <span><span class="MathJax_Preview">A[0:n]</span><script type="math/tex">A[0:n]</script></span>，非负整数 <span><span class="MathJax_Preview">0 \le k \lt n</span><script type="math/tex">0 \le k \lt n</script></span>，若对 <span><span class="MathJax_Preview">A[0:n]</span><script type="math/tex">A[0:n]</script></span> 进行升序排序，则k位数等于排完序后的 <span><span class="MathJax_Preview">A[k-1]</span><script type="math/tex">A[k-1]</script></span>。</p>
+<p>此处所述中位数，指统计意义上的中位数，即能将序列分为元素数量相等的前后两部分，使得前一部分的所有数小于等于中位数，后一部分的所有数大于等于中位数的那个数。</p>
+<p>给定序列 <span><span class="MathJax_Preview">A[0:n]</span><script type="math/tex">A[0:n]</script></span>，若对其进行升序排序，则中位数等于：</p>
+<div>
+<div class="MathJax_Preview">
+median=\begin{cases}
+A[k-1]&amp;,n=2k-1\\
+(A[k-1]+A[k])/2&amp;,n=2k
+\end{cases},k=1,2,\dots
+</div>
+<script type="math/tex; mode=display">
+median=\begin{cases}
+A[k-1]&,n=2k-1\\
+(A[k-1]+A[k])/2&,n=2k
+\end{cases},k=1,2,\dots
+</script>
+</div>
+<p>现要在不排序的条件下，以比排序更快的速度获取k位数和中位数。</p>
+<h2 id="_1">序列分区<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>序列分区是快速排序的基本操作，可用来实现快速地k位数和中位数算法。</p>
+<p><strong>目标：</strong>在序列中选择一个元素作为基准，以该基准值为中心将序列分为前后两部分，前一部分所有元素小于等于基准值，后一部分所有元素大于等于基准值。</p>
+<p>序列分区有两种常见方法，一种为基于选择的分区，中文网站和教程较为常用此方法；另一种为基于冒泡的分区，《算法导论》一书使用该方法，国外网站和教程较为常用此方法。二者都完成对子序列 <span><span class="MathJax_Preview">A[l:r]</span><script type="math/tex">A[l:r]</script></span> 进行分区的操作，并返回分区后基准值元素所在的位置 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>。</p>
+<h3 id="_2">基于选择的序列分区<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>给定子序列 <span><span class="MathJax_Preview">A[l:r]</span><script type="math/tex">A[l:r]</script></span>，使用首元素为基准进行分区。分区时，先从右向左扫描寻找第一个小于基准值的元素，并将其交换到序列前部，然后从左到右扫描第一个大于等于基准值的元素并将其交换到序列后部，如此不断循环直到整个序列扫描完毕。</p>
+<p>此算法在网上和算法教程中随处可见，此处不再详细描述，下面是算法的伪码。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<p><strong>算法伪码</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">Algorithm: Partition by Selection</p>
+<p>// <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>：待分区序列；<span><span class="MathJax_Preview">l, r</span><script type="math/tex">l, r</script></span>：子序列左右端点，左闭右开</p>
+<p><span><span class="MathJax_Preview">\text{PartitionBySelection}(A, l, r):</span><script type="math/tex">\text{PartitionBySelection}(A, l, r):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ pivot \leftarrow A[l],i\leftarrow l,j\leftarrow r-1</span><script type="math/tex">\ \ \ \ \ \ \ \ pivot \leftarrow A[l],i\leftarrow l,j\leftarrow r-1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{WHILE}\ \ i \lt j\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{WHILE}\ \ i \lt j\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ i \lt j\ \ \text{and}\ \ A[j] \ge pivot\ \ \text{DO}\ \ j \leftarrow j-1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ i \lt j\ \ \text{and}\ \ A[j] \ge pivot\ \ \text{DO}\ \ j \leftarrow j-1</script></span> </p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ i \lt j\ \ \text{THEN}\ \ A[i] \leftarrow A[j], i \leftarrow i+1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ i \lt j\ \ \text{THEN}\ \ A[i] \leftarrow A[j], i \leftarrow i+1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ i \lt j\ \ \text{and}\ \ A[i] \lt pivot\ \ \text{DO}\ \ i \leftarrow i+1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{WHILE}\ \ i \lt j\ \ \text{and}\ \ A[i] \lt pivot\ \ \text{DO}\ \ i \leftarrow i+1</script></span> </p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ i \lt j\ \ \text{THEN}\ \ A[j] \leftarrow A[i], j \leftarrow j-1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ i \lt j\ \ \text{THEN}\ \ A[j] \leftarrow A[i], j \leftarrow j-1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ A[i]\leftarrow pivot</span><script type="math/tex">\ \ \ \ \ \ \ \ A[i]\leftarrow pivot</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ i</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ i</script></span></p>
+</div>
+<h3 id="_3">基于冒泡的序列分区<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>给定子序列 <span><span class="MathJax_Preview">A[l:r]</span><script type="math/tex">A[l:r]</script></span>，使用尾元素为基准进行分区。分区时将整个子序列分为三部分，从左到右依次为小于基准值的部分、大于基准值的部分和尚未划分的部分。初始时前两部分长度均为0，随后从左到右扫描第三部分中的每一个元素并根据其值划分到应在的部分中去。</p>
+<p>此算法在网上和算法教程中随处可见，此处不再详细描述，下面是算法的伪码。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<p><strong>算法伪码</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">Algorithm: Partition by Bubble</p>
+<p>// <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>：待分区序列；<span><span class="MathJax_Preview">l, r</span><script type="math/tex">l, r</script></span>：子序列左右端点，左闭右开</p>
+<p><span><span class="MathJax_Preview">\text{PartitionByBubble}(A,l,r):</span><script type="math/tex">\text{PartitionByBubble}(A,l,r):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ i\leftarrow l,last\leftarrow r-1,pivot\leftarrow A[last]</span><script type="math/tex">\ \ \ \ \ \ \ \ i\leftarrow l,last\leftarrow r-1,pivot\leftarrow A[last]</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{FOR}\ \ j \leftarrow i\ \ \text{TO}\ \ last-1\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{FOR}\ \ j \leftarrow i\ \ \text{TO}\ \ last-1\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \  A[j] \lt pivot\ \ \text{THEN}\ \ \text{Swap}(A[i],A[j]),i\leftarrow i+1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \  A[j] \lt pivot\ \ \text{THEN}\ \ \text{Swap}(A[i],A[j]),i\leftarrow i+1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ A[last]\leftarrow A[i]</span><script type="math/tex">\ \ \ \ \ \ \ \ A[last]\leftarrow A[i]</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ A[i]\leftarrow pivot</span><script type="math/tex">\ \ \ \ \ \ \ \ A[i]\leftarrow pivot</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ i</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ i</script></span></p>
+</div>
+<h2 id="_4">基于序列分区的算法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>基于序列分区可以实现快速计算k位数和中位数。</p>
+<h3 id="k_1">分区k位数算法<a class="headerlink" href="#k_1" title="Permanent link">&para;</a></h3>
+<p><strong>目标：</strong>快速求出给定序列的k位数。</p>
+<p>算法标签：<code>统计</code> <code>k位数</code> <code>高效率</code> <code>分治</code></p>
+<p>利用分区的方法可以快速求出给定序列 <span><span class="MathJax_Preview">A[l:r]</span><script type="math/tex">A[l:r]</script></span> 的k位数，即第k小的数。k从1开始计数，1位数即序列中最小的数。此处的分区可以采用基于选择的分区方法，也可以采用基于冒泡的分区方法，二者并无区别。此处以采用基于选择的分区描述本算法。</p>
+<p>对序列 <span><span class="MathJax_Preview">A[l:r]</span><script type="math/tex">A[l:r]</script></span> 进行一次分区，将序列在位置 <span><span class="MathJax_Preview">p_1</span><script type="math/tex">p_1</script></span> 处分为 <span><span class="MathJax_Preview">A[l:p_1]</span><script type="math/tex">A[l:p_1]</script></span> 和 <span><span class="MathJax_Preview">A[p_1+1:r]</span><script type="math/tex">A[p_1+1:r]</script></span> 前后两个子序列。此时：</p>
+<ol>
+<li>若 <span><span class="MathJax_Preview">p_1-1 = k-1</span><script type="math/tex">p_1-1 = k-1</script></span> 则说明分区间断位置处的元素 <span><span class="MathJax_Preview">A[p_1]</span><script type="math/tex">A[p_1]</script></span> 即为要求的k位数；</li>
+<li>若 <span><span class="MathJax_Preview">p_1-1 \lt k-1</span><script type="math/tex">p_1-1 \lt k-1</script></span>，说明k位数在后一个子序列 <span><span class="MathJax_Preview">A[p_1+1:n]</span><script type="math/tex">A[p_1+1:n]</script></span> 中，应递归地在此子序列中继续尝试分区；</li>
+<li>若 <span><span class="MathJax_Preview">p_1-1 \gt k-1</span><script type="math/tex">p_1-1 \gt k-1</script></span> 则说明k位数在前一个子序列 <span><span class="MathJax_Preview">A[0:p_1]</span><script type="math/tex">A[0:p_1]</script></span> 中，应在此子序列中递归尝试进一步分区。</li>
+</ol>
+<p>如此递归，直至某次分区得到的间断位置 <span><span class="MathJax_Preview">p_i-l=k-1</span><script type="math/tex">p_i-l=k-1</script></span>，次位置处的元素 <span><span class="MathJax_Preview">A[p_i]</span><script type="math/tex">A[p_i]</script></span> 即为所求的k位数。此递归过程必能终止，可用循环结构完成递归。</p>
+<p>和快速排序一样，凡是基于序列分区的算法都有平均情况和最差情况。平均情况下，每次分区的间断位置都恰在待分区序列的中间，故子问题不断减半，算法工作量的上界为：</p>
+<div>
+<div class="MathJax_Preview">
+W_{avg}(n)=O(n+{n\over2}+{n\over4}+\cdots+1)=O(2n-1)
+</div>
+<script type="math/tex; mode=display">
+W_{avg}(n)=O(n+{n\over2}+{n\over4}+\cdots+1)=O(2n-1)
+</script>
+</div>
+<p>若出现最差情况，即序列 <span><span class="MathJax_Preview">A[0:n]</span><script type="math/tex">A[0:n]</script></span> 本身有序，则每次分区的间断点都在头部（或尾部），于是算法退化为蛮力求解k位数的情况，工作量为：</p>
+<div>
+<div class="MathJax_Preview">
+W_{wst}(n)=(n-1)+(n-2)+\cdots+(n-k)=kn-\frac{k(k+1)}{2}
+</div>
+<script type="math/tex; mode=display">
+W_{wst}(n)=(n-1)+(n-2)+\cdots+(n-k)=kn-\frac{k(k+1)}{2}
+</script>
+</div>
+<p>同样地，和快速排序一样，可以通过pivot随机化来规避最差情况，使得算法的平均工作量趋同为 <span><span class="MathJax_Preview">O(2n-1)</span><script type="math/tex">O(2n-1)</script></span>。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<p><strong>算法伪码</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">kth number by partition</p>
+<p>// <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>：原序列；<span><span class="MathJax_Preview">l,r</span><script type="math/tex">l,r</script></span>：序列左右端点；<span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>：位数，<span><span class="MathJax_Preview">1 \le k \le r-l</span><script type="math/tex">1 \le k \le r-l</script></span></p>
+<p><span><span class="MathJax_Preview">\text{kthNumberByPartition}(A,l,r,k):</span><script type="math/tex">\text{kthNumberByPartition}(A,l,r,k):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{WHILE}\ \ \text{true}\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{WHILE}\ \ \text{true}\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pivot \leftarrow \text{Random}(l,r-1)</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pivot \leftarrow \text{Random}(l,r-1)</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Swap}(A[l],A[pivot])</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{Swap}(A[l],A[pivot])</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow \text{PartitionBySelection}(A,l,r)</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p \leftarrow \text{PartitionBySelection}(A,l,r)</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p-l = k-1\ \ \text{THEN}\ \ \text{RETURN}\ \ A[p]</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{IF}\ \ p-l = k-1\ \ \text{THEN}\ \ \text{RETURN}\ \ A[p]</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}\ \ \text{IF}\ \ p-l \lt k-1\ \ \text{THEN}\ \ l \leftarrow p+1</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}\ \ \text{IF}\ \ p-l \lt k-1\ \ \text{THEN}\ \ l \leftarrow p+1</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}\ \ r \leftarrow p</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{ELSE}\ \ r \leftarrow p</script></span></p>
+</div>
+<p>若采用基于冒泡的分区方法，则在随机选择 <span><span class="MathJax_Preview">pivot</span><script type="math/tex">pivot</script></span> 后，应改为将其和尾部元素交换。</p>
+<p>事实上，此算法可以不返回任何值，运行结束时k位数必为 <span><span class="MathJax_Preview">A[l+k-1]</span><script type="math/tex">A[l+k-1]</script></span>。</p>
+<h3 id="_5">分区中位数算法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>算法标签：<code>统计</code> <code>中位数</code> <code>高效率</code> <code>分治</code></p>
+<p>对基于分区的k位数算法进行相应改造就可以实现求中位数。</p>
+<p>设要求中位数的序列为 <span><span class="MathJax_Preview">A[l:r]</span><script type="math/tex">A[l:r]</script></span>，令 <span><span class="MathJax_Preview">n=r-l,half=\left\lfloor{n\over2}\right\rfloor</span><script type="math/tex">n=r-l,half=\left\lfloor{n\over2}\right\rfloor</script></span>。若 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为奇数，则中位数即为排好序之后的 <span><span class="MathJax_Preview">A[l+half]</span><script type="math/tex">A[l+half]</script></span>，即 <span><span class="MathJax_Preview">half+1</span><script type="math/tex">half+1</script></span> 位数，只需调用上面的k位数算法取得该值即可。若 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为偶数，则中位数为排好序之后的 <span><span class="MathJax_Preview">(A[l+half-1]+A[l+half])/2</span><script type="math/tex">(A[l+half-1]+A[l+half])/2</script></span>，即 <span><span class="MathJax_Preview">half</span><script type="math/tex">half</script></span> 位数和 <span><span class="MathJax_Preview">half+1</span><script type="math/tex">half+1</script></span> 位数的平均值，同样调用k位数算法得到 <span><span class="MathJax_Preview">half+1</span><script type="math/tex">half+1</script></span> 位数，此后序列中 <span><span class="MathJax_Preview">A[l+half]</span><script type="math/tex">A[l+half]</script></span> 之前的子序列 <span><span class="MathJax_Preview">A[l:l+half]</span><script type="math/tex">A[l:l+half]</script></span> 中所有的元素值都小于等于 <span><span class="MathJax_Preview">A[l+half]</span><script type="math/tex">A[l+half]</script></span>，所以只要在这个左半子序列中求出最大值并将其与 <span><span class="MathJax_Preview">A[l+half]</span><script type="math/tex">A[l+half]</script></span> 做算术平均即可得到中位数。</p>
+<p>时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<p><strong>算法伪码</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">median by partition</p>
+<p>// <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>：原序列；<span><span class="MathJax_Preview">l,r</span><script type="math/tex">l,r</script></span>：序列左右端点</p>
+<p><span><span class="MathJax_Preview">\text{MedianByPartition}(A,l,r):</span><script type="math/tex">\text{MedianByPartition}(A,l,r):</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ n\leftarrow r-l,half\leftarrow\left\lfloor{n\over2}\right\rfloor</span><script type="math/tex">\ \ \ \ \ \ \ \ n\leftarrow r-l,half\leftarrow\left\lfloor{n\over2}\right\rfloor</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ median\leftarrow\text{kthNumberByPartition}(A,l,r,half+1)</span><script type="math/tex">\ \ \ \ \ \ \ \ median\leftarrow\text{kthNumberByPartition}(A,l,r,half+1)</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{IF}\ \ n = 0 \pmod 2\ \ \text{THEN}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{IF}\ \ n = 0 \pmod 2\ \ \text{THEN}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max_l \leftarrow A[l]</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max_l \leftarrow A[l]</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOR}\ \ i\leftarrow l+1\ \ \text{TO}\ \ l+half-1\ \ \text{DO}:</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \text{FOR}\ \ i\leftarrow l+1\ \ \text{TO}\ \ l+half-1\ \ \text{DO}:</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max_l \leftarrow \max(max_l, A[i])</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max_l \leftarrow \max(max_l, A[i])</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ median \leftarrow (median+max_l)/2</span><script type="math/tex">\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ median \leftarrow (median+max_l)/2</script></span></p>
+<p><span><span class="MathJax_Preview">\ \ \ \ \ \ \ \ \text{RETURN}\ \ median</span><script type="math/tex">\ \ \ \ \ \ \ \ \text{RETURN}\ \ median</script></span></p>
+</div>
+<p>缺点：基于分区的k位数算法最大的问题是时间复杂度不确定，是一个统计意义上的期望值。当k很小时，算法的时间效率可能会低于蛮力比较法。如果 <span><span class="MathJax_Preview">k=1</span><script type="math/tex">k=1</script></span>，即求最小值时，算法慢于蛮力法（蛮力法恰好进行 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 次元素比较）。同样道理，当原序列的元素数量本身就很小时，基于分区求中位数与直接排序相比不一定更快。</p>
+<h2 id="_6">锦标赛算法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>算法标签：<code>统计</code> <code>锦标赛</code> <code>高效率</code> <code>二叉树</code></p>
+<p>锦标赛算法同样用于快速求k位数、中位数，但其时间复杂度是确定的。另外，锦标赛算法也可以用于排序，时间复杂度为确定的 <span><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span>。</p>
+<p>首先模拟体育比赛中锦标赛的赛制找出最小元素：序列中的数两两分组进行比对，小者胜出进入第二轮，逐轮竞争直到最后只剩一个最小的元素胜出。这个过程可以从底向上建出一棵二叉树，树的叶子节点为序列中的元素，根节点为最小元素。称为建树过程。为了便利起见，应建立满二叉树，假设序列为 <span><span class="MathJax_Preview">A[0:n]</span><script type="math/tex">A[0:n]</script></span>，即有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个元素，应将元素扩展为 <span><span class="MathJax_Preview">2^L</span><script type="math/tex">2^L</script></span> 个，其中 <span><span class="MathJax_Preview">L=\lceil\log n\rceil</span><script type="math/tex">L=\lceil\log n\rceil</script></span>，建完之后的满二叉树的高度为 <span><span class="MathJax_Preview">L+1</span><script type="math/tex">L+1</script></span> 层。扩展出来的假元素（dummy）在参与竞赛的时候直接被对手淘汰。</p>
+<p>例如下面是对序列 <span><span class="MathJax_Preview">A[0:7] = &lt;4, 2, 0, 5, 9, 3, 8&gt;</span><script type="math/tex">A[0:7] = <4, 2, 0, 5, 9, 3, 8></script></span> 进行建树操作的结果：</p>
+<p><img alt="champion_tree" src="/notes/algos/img/champion_tree.png" /></p>
+<p>图中蓝色节点为真实的序列元素叶子节点，灰色为假元素节点，绿色为建树过程创建出的比较结果节点。比较的具体操作就是将获胜的节点复制到它的父节点上。</p>
+<p>在叶子层上共有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个真实的元素节点，两两分组共需进行 <span><span class="MathJax_Preview">\left\lceil{n\over2}\right\rceil</span><script type="math/tex">\left\lceil{n\over2}\right\rceil</script></span> 次比较，比较结果在其上一层产生 <span><span class="MathJax_Preview">\left\lceil{n\over2}\right\rceil</span><script type="math/tex">\left\lceil{n\over2}\right\rceil</script></span> 个有意义的节点。这一规律逐层向上是不变的，以根节点所在的层为第0层，叶子层即为第 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 层，令第 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 层上有意义的节点数为 <span><span class="MathJax_Preview">n_j</span><script type="math/tex">n_j</script></span>，其中 <span><span class="MathJax_Preview">n_0=1,n_L=n</span><script type="math/tex">n_0=1,n_L=n</script></span>，则该层上需要进行的两两比较次数为 <span><span class="MathJax_Preview">\left\lceil{n_j\over2}\right\rceil</span><script type="math/tex">\left\lceil{n_j\over2}\right\rceil</script></span>，且有 <span><span class="MathJax_Preview">n_{j-1} = \left\lceil{n_j\over2}\right\rceil</span><script type="math/tex">n_{j-1} = \left\lceil{n_j\over2}\right\rceil</script></span>。整个建树过程的工作量为 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 次比较。</p>
+<p>上述建树过程结束后，最小元素已经位于根节点了，此即为1位数。若要取序列中的2位数，可以这样想，从序列中取走最小元素，再次建树后新的最小元素就是实际上的第2小元素了。而2位数一定只可能是被1位数淘汰的，且是被1位数淘汰的所有元素中最大的那个。</p>
+<p>综上所述，若从原序列中取走最小元素，重新建树时会发生改变的只有从该最小元素的叶子节点出发向上到达树根的那条路径，别的路径上的节点不会发生任何改变。因此我们只需找到最小元素所在的叶子节点，将其改为假元素节点，然后从它开始沿着它原本的比较路径重新比较直到抵达树根即可，比较次数恰为 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 次，即工作量为 <span><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>。</p>
+<p>下图为对上面建好的树进行取走1位数之后的结果，图中原先的1位数（元素0）所对应的叶子节点被改为假元素节点，然后沿着它的上升路径进行重新比较，标注为黄色节点。三次重新比较后，新的最小元素，即序列中第2小的2位数（元素2）被推上了根节点。</p>
+<p><img alt="champion_1st" src="/notes/algos/img/champion_1st.png" /></p>
+<p>那么如果要取3位数，只需在此基础上重复上述步骤即可。如下图所示，将2位数对应的元素2的叶子节点改成假元素节点，重建图中红色的路径即可。</p>
+<p><img alt="champion_2nd" src="/notes/algos/img/champion_2nd.png" /></p>
+<p>此过程可一直进行下去，每一次的工作量都是 <span><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>。</p>
+<p>若要取k位数，只要 <span><span class="MathJax_Preview">k-1</span><script type="math/tex">k-1</script></span> 次上述操作即可，时间复杂度 <span><span class="MathJax_Preview">(n+k\log n)</span><script type="math/tex">(n+k\log n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+<p>若k等于序列长度 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，那么取k位数的过程相当于完成了一次排序。时间复杂度 <span><span class="MathJax_Preview">(n\log n)</span><script type="math/tex">(n\log n)</script></span>，空间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+<p>若用于取中位数，只要根据序列长度 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的奇偶性取出合适的k位数即可。若 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为奇数，则取 <span><span class="MathJax_Preview">n+1\over2</span><script type="math/tex">n+1\over2</script></span> 位数即是；若 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为偶数，则中位数为 <span><span class="MathJax_Preview">n\over2</span><script type="math/tex">n\over2</script></span> 位数和 <span><span class="MathJax_Preview">{n\over2}+1</span><script type="math/tex">{n\over2}+1</script></span> 位数的平均值。</p>
+<p>此算法在k较小时效率很高，比直接基于排序的k位数算法和基于分区的k位数算法都要快。但随着k的增大速度优势就不断减弱，当k接近中间位置时比排序取k位数要慢许多。若用于排序，比通常的其他 <span><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span> 排序算法比如快排、归并都要慢不少，因此很少见适用锦标赛排序的场景。</p>
+<p>缺点：需使用复杂的数据结构。</p>
+<p>最方便的用来构建锦标赛算法所需的二叉树的数据结构为顺序表存放的满二叉树。但此数据结构也并非简单结构。</p>
+<p>另外，树的节点中除了存放元素值，还至少需要两个辅助信息：表示该节点是否位假元素的标志；元素对应的叶子节点的位置。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="">
+        
+          <a href="../prime_algos/" title="质数算法" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                质数算法
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
