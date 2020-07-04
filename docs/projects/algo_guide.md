@@ -10,7 +10,7 @@
 
 讲义包括常用技巧、基础算法、基础数据结构、算法设计、中高级算法、中高级数据结构、经典例题七个部分。目前第一稿已经写到基础数据结构的顺序表，正在校对中。
 
-项目使用 GitHub Pages 作为主力发布站点：[C++算法编程指南](https://majorli.github.com/algo_guide/){: target=_blank}
+项目使用 GitHub Pages 作为主力发布站点：[C++算法编程指南](https://majorli.github.io/algo_guide/){: target=_blank}
 
 ReadTheDocs 上的站点为备用站：[C++算法编程指南](https://algo-guide.readthedocs.io/zh_CN/latest/){: target=_blank}
 
