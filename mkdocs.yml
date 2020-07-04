@@ -12,13 +12,13 @@ nav:
                 - 更博日志:
                         - journal_may_2020.md
                         - journal_apr_2020.md
+                        - journal_jun_2020.md
         - Projects:
                 - projects/algo_guide.md
         - Algorithms:
                 - notes/algos/overview.md
                 - notes/algos/prime_algos.md
                 - notes/algos/kth.md
-                - notes/algos/perm_comb.md
 
 theme:
         name: material
