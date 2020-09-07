@@ -10,6 +10,7 @@ nav:
         - Home: 
                 - index.md
                 - 更博日志:
+                        - journal_aug_2020.md
                         - journal_jul_2020.md
                         - journal_jun_2020.md
                         - journal_may_2020.md
