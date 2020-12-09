@@ -21,6 +21,7 @@ nav:
                 - notes/algos/overview.md
                 - notes/algos/prime_algos.md
                 - notes/algos/kth.md
+                - notes/algos/atcoder_abc183f_confluence.md
 
 theme:
         name: material

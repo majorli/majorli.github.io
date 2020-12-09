@@ -2,6 +2,10 @@
 
 ## What's New
 
+**2020年12月9日：**
+
+- 算法笔记新增一篇：AtCoder Beginner Contest 183F - Confluence，森林堆归并，很有意思的一个题。直通车：[ABC183F-Confluence](notes/algos/atcoder_abc183f_confluence.md)。
+
 **2020年11月11日：**
 
 - 由于前段时间工作岗位调动，家中又发生一些事情，非常繁忙，实在无力每天继续更新博客，C++算法编程指南项目只能遗憾暂停，不知什么时候才能恢复时间精力来继续下去。
